@@ -23,3 +23,27 @@ module.exports.index = async (req, res) => {
   const places = await Places.findAll();
   return res.status(200).send({ places: places });
 };
+
+module.exports.destroy = async (req, res) => {
+  const { id } = req.params;
+  console.log("id", id);
+
+  try {
+    const place = await Places.findOne({
+      where: {
+        id: id,
+      },
+    });
+    if (place) {
+      Places.destroy({ where: { id: id } });
+      res.status(204).send();
+      return;
+    } else {
+      res.status(400).send({ message: "ID não localizado" });
+      return;
+    }
+  } catch (err) {
+    console.log(err);
+    return res.status(400).send({ message: err.message });
+  }
+};

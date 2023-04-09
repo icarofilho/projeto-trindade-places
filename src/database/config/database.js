@@ -1,13 +1,12 @@
-const {
-  env: { DIALECT, HOST, USERNAME, PASSWORD, DATABASE },
-} = process;
+// require("dotenv").config();
+// const { DIALECT, HOST, USERNAME, PASSWORD, DATABASE } = ;
 
 // module.exports = {
-//   dialect: DIALECT,
-//   host: HOST,
-//   username: USERNAME,
-//   password: PASSWORD,
-//   database: DATABASE,
+//   dialect: process.env.DIALECT,
+//   host: process.env.HOST,
+//   username: process.env.USERNAME,
+//   password: process.env.PASSWORD,
+//   database: process.env.DATABASE,
 //   define: {
 //     timestamps: true,
 //     underscored: true,

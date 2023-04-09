@@ -1,6 +1,7 @@
 const {
   store: storePlace,
   index: indexPlace,
+  destroy: destroyPlace,
 } = require("../functions/PlaceFunctions");
 
 class PlaceController {
@@ -10,6 +11,10 @@ class PlaceController {
 
   async index(req, res) {
     await indexPlace(req, res);
+  }
+
+  async destroy(req, res) {
+    await destroyPlace(req, res);
   }
 }
 
