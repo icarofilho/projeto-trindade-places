@@ -2,6 +2,7 @@ const {
   store: storePlace,
   index: indexPlace,
   destroy: destroyPlace,
+  update: updatePlace,
 } = require("../functions/PlaceFunctions");
 
 class PlaceController {
@@ -15,6 +16,9 @@ class PlaceController {
 
   async destroy(req, res) {
     await destroyPlace(req, res);
+  }
+  async update(req, res) {
+    await updatePlace(req, res);
   }
 }
 

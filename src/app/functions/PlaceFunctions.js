@@ -47,3 +47,16 @@ module.exports.destroy = async (req, res) => {
     return res.status(400).send({ message: err.message });
   }
 };
+
+module.exports.update = async (req, res) => {
+  const { id } = req.params;
+  const {
+    body: { name, phone, opening_hours, description, latitude, longitude },
+  } = req;
+
+  const body = { name, phone, opening_hours, description, latitude, longitude };
+
+  const place = await Places.update(body, { where: { id: id } });
+
+  return res.status(200).send({ place });
+};
