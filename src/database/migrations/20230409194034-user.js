@@ -3,7 +3,7 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable("places", {
+    await queryInterface.createTable("users", {
       id: {
         type: Sequelize.INTEGER,
         allowNull: false,
@@ -14,24 +14,18 @@ module.exports = {
         type: Sequelize.STRING,
         allowNull: false,
       },
-      phone: {
+      email: {
         type: Sequelize.STRING,
         allowNull: false,
+        unique: true,
       },
-      opening_hours: {
+      username: {
         type: Sequelize.STRING,
         allowNull: false,
+        unique: true,
       },
-      description: {
+      password: {
         type: Sequelize.STRING,
-        allowNull: false,
-      },
-      latitude: {
-        type: Sequelize.NUMERIC,
-        allowNull: false,
-      },
-      longitude: {
-        type: Sequelize.NUMERIC,
         allowNull: false,
       },
       created_at: {
@@ -46,6 +40,6 @@ module.exports = {
   },
 
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable("places");
+    await queryInterface.dropTable("users");
   },
 };
