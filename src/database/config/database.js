@@ -1,24 +1,13 @@
-// require("dotenv").config();
-// const { DIALECT, HOST, USERNAME, PASSWORD, DATABASE } = ;
+const {
+  env: { DB_DIALECT, DB_HOST, DB_PASSWORD, DB_USERNAME, DATABASE_NAME },
+} = process;
 
-// module.exports = {
-//   dialect: process.env.DIALECT,
-//   host: process.env.HOST,
-//   username: process.env.USERNAME,
-//   password: process.env.PASSWORD,
-//   database: process.env.DATABASE,
-//   define: {
-//     timestamps: true,
-//     underscored: true,
-//     underscoredAll: true,
-//   },
-// };
 module.exports = {
-  dialect: "postgres", // o banco utilizado
-  host: "localhost", // endereçamento
-  username: "postgres", // username de conexão ao banco
-  password: "1234", // senha de conexão ao banco
-  database: "trindade-places", // nome do banco que será criado ou conectado
+  dialect: DB_DIALECT,
+  host: DB_HOST,
+  username: DB_USERNAME,
+  password: DB_PASSWORD,
+  database: DATABASE_NAME,
   define: {
     timestamps: true,
     underscored: true,

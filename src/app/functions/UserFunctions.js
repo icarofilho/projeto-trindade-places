@@ -1,14 +1,16 @@
 const User = require("../../database/models/user.model");
+const bcrypt = require("bcrypt");
 
 module.exports.store = async (req, res) => {
   const { name, email, username, password } = req.body;
-  console.log(name, email, username, password);
+  const salt = 10;
+  const hash = await bcrypt.hash(password, salt);
   try {
     const user = await User.create({
       name: name,
       email: email,
       username: username,
-      password: password,
+      password: hash,
     });
 
     return res
@@ -21,10 +23,9 @@ module.exports.store = async (req, res) => {
   }
 };
 module.exports.index = async (_, res) => {
-  const users = await User.findAll();
-  res.status(200).send({ msg: "hello world" });
+  const users = await User.findAll({
+    attributes: ["id", "name", "email", "username"],
+  });
+  res.status(200).send(users);
   return;
 };
-module.exports.show = async (req, res) => {};
-module.exports.update = async (req, res) => {};
-module.exports.destroy = async (req, res) => {};
