@@ -13,9 +13,7 @@ module.exports.store = async (req, res) => {
       password: hash,
     });
 
-    return res
-      .status(201)
-      .send({ msg: `Usuário com ID ${user.id} criado com sucesso.` });
+    return res.status(201).send({ msg: `Usuário com ID ${user.id} criado com sucesso.` });
   } catch (err) {
     console.log(err);
     res.status(500).send({ message: err.message });

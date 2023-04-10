@@ -5,7 +5,7 @@ const outputFile = "./src/swagger.json";
 const endPointsFiles = ["src/app/routes/index.js"];
 
 const doc = {
-  swagger: "3.0",
+  swagger: "2.0",
   info: {
     version: "1.0.0",
     title: "trindade-places",
@@ -25,6 +25,10 @@ const doc = {
     {
       name: "Places",
       description: "EndPoint para rotas de local",
+    },
+    {
+      name: "Session",
+      description: "EndPoint para gerar token",
     },
   ],
 };

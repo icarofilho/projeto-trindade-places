@@ -1,0 +1,138 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "trindade-places",
+    "description": "API criada para estudos com sequelize + postgres"
+  },
+  "host": "localhost:3333",
+  "basePath": "/",
+  "tags": [
+    {
+      "name": "Users",
+      "description": "EndPoint para usuários"
+    },
+    {
+      "name": "Places",
+      "description": "EndPoint para rotas de local"
+    },
+    {
+      "name": "Session",
+      "description": "EndPoint para gerar token"
+    }
+  ],
+  "schemes": [
+    "http"
+  ],
+  "consumes": [
+    "application/json",
+    "application/xml"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/v1/session": {
+      "post": {
+        "description": "",
+        "parameters": [],
+        "responses": {}
+      }
+    },
+    "/v1/places": {
+      "post": {
+        "description": "",
+        "parameters": [],
+        "responses": {}
+      },
+      "get": {
+        "description": "",
+        "parameters": [],
+        "responses": {}
+      }
+    },
+    "/v1/places/{id}": {
+      "delete": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {}
+      },
+      "put": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {}
+      }
+    },
+    "/v1/user": {
+      "post": {
+        "tags": [
+          "Users"
+        ],
+        "description": "Cadastra um novo usuário no sistema",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "description": "todos os campos devem ser preenchidos",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "nome": {
+                  "type": "string",
+                  "example": "Katarina"
+                },
+                "email": {
+                  "type": "string",
+                  "example": "noxus@gmail.com"
+                },
+                "username": {
+                  "type": "string",
+                  "example": "katarinaDeNoxus"
+                },
+                "password": {
+                  "type": "string",
+                  "example": "12345678901"
+                }
+              },
+              "required": [
+                "nome",
+                "email",
+                "username",
+                "password"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      }
+    },
+    "/v1/users": {
+      "get": {
+        "tags": [
+          "Users"
+        ],
+        "description": "Endpoint para buscar todos os usuários do banco de dados.",
+        "parameters": [],
+        "responses": {}
+      }
+    }
+  }
+}
